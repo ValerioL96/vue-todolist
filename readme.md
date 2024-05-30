@@ -46,7 +46,7 @@ MILESTONE 1
     }
   }).mount('#app')
 
-2.1) creo in HTML un div app in cui metterò la mia lista:
+1.2) creo in HTML un div app in cui metterò la mia lista:
 - <div id="app">
     <h1>To do list</h1>
     <section class="container-todolist">
@@ -59,6 +59,61 @@ MILESTONE 1
   </div>        
 
 2) Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.
+
+2.1) in HTML aggiungo al ciclo for una condizione che se item.done è uguale a true avrò che la clsse done creata in CSS viceversa è false non avrò nulla:
+
+- <div id="app">
+    <h1>To do list</h1>
+    <section class="container-todolist">
+        <ul class="todolist">
+          <li class="item-list" v-for="item in todoList"
+          :class="(item.done === true ) ? 'done' : '' "
+          >
+          {{item.text}}
+          </li>
+        </ul>
+    </section>
+  </div> 
+
+2.2) in Javscript creo un metodo che mi inverte la condizione da me creata in precedenza con l'aggiunta ad item di un index in HTML:
+
+- <div id="app">
+    <h1>To do list</h1>
+    <section class="container-todolist">
+        <ul class="todolist">
+          <li class="item-list" v-for="(item, index) in todoList" :key="index"
+          :class="(item.done === true ) ? 'done' : '' "
+          >
+          {{item.text}}
+          </li>
+        </ul>
+    </section>
+  </div>
+
+
+-  methods:{
+        switchDone: function(itemIndex){
+            this.todoList[itemIndex].done = !this.todoList[itemIndex].done;
+        }
+    }
+
+
+2.3) a questo punto posso dire nel li che ha una funzione di tipo click chiamata switchDone con l'index:
+
+-  <div id="app">
+    <h1>To do list</h1>
+    <section class="container-todolist">
+        <ul class="todolist">
+          <li class="item-list" v-for="(item, index) in todoList" :key="index"
+          :class="(item.done === true ) ? 'done' : '' "
+           @click="switchDone(index)"
+          >
+          {{item.text}}
+          </li>
+        </ul>
+    </section>
+  </div>
+
 
 
 MILESTONE 2
