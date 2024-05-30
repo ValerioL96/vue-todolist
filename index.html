@@ -10,6 +10,18 @@
 </head>
 <body>
 
+    <div id="app">
+
+        <h1>To Do List</h1>
+        <section class="container-todolist">
+            <ul class="todolist">
+                <li class="item-list" v-for="item in todoList">
+                {{ item.text }}
+                </li>
+              </ul>
+        </section>
+    </div>
+
 <!--Vuejs-->
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <!--Javascript-->
