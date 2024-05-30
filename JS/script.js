@@ -14,7 +14,7 @@
         },
           {
             text:'Carote',
-            done: false,
+            done: true,
         },
           {
             text:'Sapone',
@@ -35,5 +35,13 @@
 
        ]
       }
+    },
+
+//2) Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.
+
+    methods:{
+        switchDone: function(itemIndex){
+            this.todoList[itemIndex].done = !this.todoList[itemIndex].done;
+        }
     }
   }).mount('#app')
