@@ -4,7 +4,42 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    margin-bottom: 2rem;
+}
+
+section.container-todolist{
+    background-color: cornflowerblue;
+    border-radius: 1rem;
+    width: 600px;
+
+}
+
+ul {
+    list-style-type: none;
+    padding: 2rem;
+}
+
+ul>li {
+    font-size: larger;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem; 
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    background-color: rgb(8, 58, 152);
+    
+}
 
 ul li>span.done{
-    text-decoration: red line-through;
+    text-decoration: red .2rem line-through;
+
 }
