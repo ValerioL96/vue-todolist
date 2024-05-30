@@ -14,7 +14,7 @@
         },
           {
             text:'Carote',
-            done: true,
+            done: false,
         },
           {
             text:'Sapone',
@@ -42,6 +42,10 @@
     methods:{
         switchDone: function(itemIndex){
             this.todoList[itemIndex].done = !this.todoList[itemIndex].done;
+        },
+
+        removeTasck: function(taskIndex){
+          this.todoList.splice(taskIndex, 1);
         }
     }
   }).mount('#app')

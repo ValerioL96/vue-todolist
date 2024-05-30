@@ -15,11 +15,20 @@
         <h1>To Do List</h1>
         <section class="container-todolist">
             <ul class="todolist">
-                <li class="item-list" v-for="(item, index) in todoList" :key="index"
-                :class="(item.done === true ) ? 'done' : '' "
+                <li class="item-list" v-for="(item, index) in todoList" :key="index">
+
+                <span :class="(item.done === true ) ? 'done' : '' "
                 @click="switchDone(index)"
                 >
-                {{ item.text }}
+
+                    {{ item.text }}
+
+                </span>
+
+                <i @click="removeTasck(index)">
+                    X
+                </i>
+                
                 </li>
               </ul>
         </section>
