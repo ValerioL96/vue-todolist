@@ -28,16 +28,32 @@
                 <span :class="(item.done === true ) ? 'done' : '' "
                 @click="switchDone(index)"
                 >
-
+            
                     {{ item.text }}
 
                 </span>
 
-                <i class="fa-solid fa-delete-left" @click="removeTasck(index)">
-                </i>
+                <div>
+
+                    <i class="fa-solid fa-pen-to-square" @click="addNewTask(newTaskText)">   
+                    </i>
+
+                    <i class="fa-solid fa-delete-left" @click="removeTasck(index)">
+                    </i>
+
+                </div>
+
+
                 
                 </li>
               </ul>
+        </section>
+        <section class="input">
+            <div>
+                <label for="new-item-list">Scrivi un nuovo elemento: </label>
+                <input type="text" id="new-item-list" v-model= "newTaskText"
+                @keyup.enter= "addNewTask(newTaskText)">
+            </div>
         </section>
     </div>
 

@@ -16,6 +16,7 @@ h1{
 }
 
 section.container-todolist{
+    margin-bottom: 1rem;
     background-color: cornflowerblue;
     border-radius: 1rem;
     width: 600px;
@@ -42,4 +43,8 @@ ul>li {
 ul li>span.done{
     text-decoration: red .2rem line-through;
 
+}
+
+section.input{
+    font-size: 1.5rem;
 }

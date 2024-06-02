@@ -33,7 +33,8 @@
             done: false,
         },
 
-       ]
+       ],
+       newTaskText:'',
       }
     },
 
@@ -46,6 +47,19 @@
 
         removeTasck: function(taskIndex){
           this.todoList.splice(taskIndex, 1);
+        },
+
+        addNewTask: function(newText){
+          const newTask={
+            text:newText,
+            done: false,
+          }
+          this.todoList.push(newText);
+          this.clearNewTask();
+        },
+
+        clearNewTask: function(){
+          this.newTaskText= '';
         }
     }
   }).mount('#app')
