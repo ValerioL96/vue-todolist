@@ -175,4 +175,125 @@ MILESTONE 2
 
 
 MILESTONE 3
-Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul pulsante o premendo il tasto invio, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
+Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul pulsante o premendo il tasto invio, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti:
+
+1.1) creo in HTML una nuova section con input text per aggiungere item alla todo list:
+
+-  < section class="input">
+            < div>
+                < label for="new-item-list">Scrivi un nuovo elemento< /label>
+                < input type="text" id="new-item-list">
+            < /div>
+        < /section>
+
+1.2) creo in methods una funzione che mi aggiunge un task alla lista, per fare ciò mi creo un oggetto che avrà text vuoto e done: false:
+
+- addNewTask: function(){
+          const newTask={
+            text:'',
+            done: false,
+          }
+        }
+
+1.3) aggiungo un v-model nel input text per creare un collegamento con la lista in cui avrò il nuovo contenuto:
+
+- < section class="input">
+            < div>
+                < label for="new-item-list">Scrivi un nuovo elemento< /label>
+                < input type="text" id="new-item-list" v-model="newTaskText">
+            < /div>
+        < /section>
+
+- const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+       todoList: [
+        {
+            text:'Fragole',
+            done: false,
+        },
+          {
+            text:'Carote',
+            done: false,
+        },
+          {
+            text:'Sapone',
+            done: false,
+        },
+          {
+            text:'T-shirt',
+            done: false,
+        },
+          {
+            text:'Batterie',
+            done: false,
+        },
+          {
+            text:'Pasta',
+            done: false,
+        },
+
+       ],
+
+        newTaskText:'',
+
+      }
+    }
+  }) 
+
+1.4) creo una variabile che passo direttamente all'interno della funzione:
+
+- addNewTask: function(newText){
+          const newTask={
+            text:newText,
+            done: false,
+          }
+        }
+
+1.5) all'interno del mio input aggiungo una funzione che mi permette di passare in newTaskText item con il pulsante invio,
+dopo questo pusho all'interno dell'array:
+
+- < section class="input">
+            < div>
+                < label for="new-item-list">Scrivi un nuovo elemento< /label>
+                < input type="text" id="new-item-list" v-model="newTaskText"
+                @keyup.enter= "addNewTask(newTaskText)">
+            < /div>
+        < /section>
+
+- addNewTask: function(newText){
+          const newTask={
+            text:newText,
+            done: false,
+          }
+          this.todoList.push(newText);
+        }
+
+1.6) creo una funzione che mi liberi la casella dopo aver digitato nell'input:
+
+- addNewTask: function(newText){
+          const newTask={
+            text:newText,
+            done: false,
+          }
+          this.todoList.push(newText);
+          this.clearNewTask();
+        },
+
+        clearNewTask: function(){
+          this.newTaskText:'',
+        }
+
+1.7)  In HTML aggiungo una edit con la funzione click  che mi permetterà di aggiungere gli elementi nuovi che digito nell'input text alla lista:
+
+- < div>
+
+        < i class="fa-solid fa-pen-to-square" @click="addNewTask(newTaskText)">   
+        < /i>
+
+        < i class="fa-solid fa-delete-left" @click="removeTasck(index)">
+        < /i>
+
+  < /div>
